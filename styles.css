@@ -52,14 +52,16 @@ h1, h2, h3, p, figure, blockquote { margin: 0; }
 .btn {
   display: inline-flex; align-items: center; justify-content: center; gap: .75rem;
   font-weight: 600; white-space: nowrap; border-radius: .875rem;
-  transition: background-color .2s, color .2s, border-color .2s, box-shadow .2s, transform .15s;
+  transition: background-color .25s, color .25s, border-color .25s, box-shadow .25s, transform .15s;
 }
 .btn:active { transform: translateY(1px); }
+.btn .ico { transition: transform .25s cubic-bezier(.3,.7,.3,1); }
+.btn:hover .ico { transform: translateX(.375rem); }
 /* градиент — отдельным слоем поверх сплошного цвета: при наведении плавно меняется только background-color */
 .btn--fill { background-color: var(--green-2); background-image: linear-gradient(180deg, rgba(255,255,255,.1), rgba(255,255,255,0)); color: #fff; box-shadow: 0 .5rem 1.25rem -.5rem rgba(14,138,63,.55); }
-.btn--fill:hover { background-color: var(--green-hover); box-shadow: 0 .625rem 1.5rem -.5rem rgba(14,138,63,.6); }
+.btn--fill:hover { background-color: #065A29; box-shadow: 0 .875rem 2rem -.625rem rgba(6,90,41,.75); }
 .btn--line { background: #fff; color: var(--green); border: 2px solid var(--green); }
-.btn--line:hover { background: var(--mint); }
+.btn--line:hover { background-color: var(--green); border-color: var(--green); color: #fff; }
 .btn--lg { height: 4.5rem; padding: 0 2.25rem; font-size: 1.1875rem; min-width: 20.25rem; }
 .btn--lg .ico { width: 1.625rem; height: 1.625rem; }
 .btn--md { height: 3.375rem; padding: 0 2rem; font-size: 1.0625rem; min-width: 16.75rem; border-radius: .75rem; }

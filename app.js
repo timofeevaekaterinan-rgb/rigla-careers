@@ -70,6 +70,12 @@
     }
   }
 
+  /* ---------- Листья в CTA: анимация при каждом появлении блока на экране ---------- */
+  const cta = document.getElementById('cta');
+  if (cta && 'IntersectionObserver' in window) {
+    new IntersectionObserver(([e]) => cta.classList.toggle('is-in', e.isIntersecting), { threshold: 0.35 }).observe(cta);
+  }
+
   /* ---------- Истории сотрудников ----------
      Тексты — демо-заглушки, заменить на реальные истории от клиента. */
   const stories = [

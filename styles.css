@@ -197,6 +197,23 @@ h1, h2, h3, p, figure, blockquote { margin: 0; }
 .leaves--l { left: 0; }
 .leaves--r { right: 0; }
 
+/* листья: крайние расходятся в стороны, затем пружинят к центральному */
+.leaf { transform-box: view-box; }
+.leaves--l .leaf { transform-origin: 0% 100%; }
+.leaves--r .leaf { transform-origin: 100% 100%; }
+.cta.is-in .leaves--l .leaf--top { animation: leafTopL 1.9s cubic-bezier(.3,.7,.2,1) both; }
+.cta.is-in .leaves--l .leaf--bot { animation: leafBotL 1.9s cubic-bezier(.3,.7,.2,1) both; }
+.cta.is-in .leaves--r .leaf--top { animation: leafTopR 1.9s cubic-bezier(.3,.7,.2,1) .12s both; }
+.cta.is-in .leaves--r .leaf--bot { animation: leafBotR 1.9s cubic-bezier(.3,.7,.2,1) .12s both; }
+.cta.is-in .leaf--mid { animation: leafMid 1.9s ease-out both; }
+.cta.is-in .leaves--r .leaf--mid { animation-delay: .12s; }
+@keyframes leafTopL { 0% { transform: rotate(0); } 28% { transform: rotate(-11deg); } 52% { transform: rotate(5deg); } 70% { transform: rotate(-2.4deg); } 85% { transform: rotate(1deg); } 100% { transform: rotate(0); } }
+@keyframes leafBotL { 0% { transform: rotate(0); } 28% { transform: rotate(9deg); } 52% { transform: rotate(-4.5deg); } 70% { transform: rotate(2deg); } 85% { transform: rotate(-.8deg); } 100% { transform: rotate(0); } }
+@keyframes leafTopR { 0% { transform: rotate(0); } 28% { transform: rotate(11deg); } 52% { transform: rotate(-5deg); } 70% { transform: rotate(2.4deg); } 85% { transform: rotate(-1deg); } 100% { transform: rotate(0); } }
+@keyframes leafBotR { 0% { transform: rotate(0); } 28% { transform: rotate(-9deg); } 52% { transform: rotate(4.5deg); } 70% { transform: rotate(-2deg); } 85% { transform: rotate(.8deg); } 100% { transform: rotate(0); } }
+@keyframes leafMid { 0%, 35% { transform: scale(1); } 52% { transform: scale(1.035); } 75%, 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .cta.is-in .leaf { animation: none !important; } }
+
 /* =========================================================
    1200–1919: по просьбе Кати — больше воздуха между блоками
    (на 1920 отступы как в макете; здесь ≈ ×1,4 от пропорции)
